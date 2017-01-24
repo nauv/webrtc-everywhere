@@ -4,9 +4,9 @@
 
 #include "_Config.h"
 
-#include "talk/media/base/videocapturer.h"
-#include "talk/media/base/videocapturerfactory.h"
-#include "webrtc/modules/desktop_capture/window_capturer.h"
+#include "webrtc/media/base/videocapturer.h"
+#include "webrtc/media/base/videocapturerfactory.h"
+#include "webrtc/modules/desktop_capture/cropping_window_capturer.h"
 
 class _ScreenVideoCapturer;
 

@@ -5,7 +5,7 @@
 #include "_Config.h"
 #include "_Common.h"
 
-#include "webrtc/system_wrappers/interface/critical_section_wrapper.h"
+#include "webrtc/system_wrappers/include/critical_section_wrapper.h"
 
 #include <map>
 

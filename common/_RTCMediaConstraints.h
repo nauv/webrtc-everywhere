@@ -4,7 +4,7 @@
 
 #include "_Config.h"
 
-#include "talk/app/webrtc/mediaconstraintsinterface.h"
+#include "webrtc/api/mediaconstraintsinterface.h"
 #include "webrtc/base/refcount.h"
 
 class _RTCMediaConstraints 

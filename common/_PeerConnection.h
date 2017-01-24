@@ -5,9 +5,9 @@
 #include "_Config.h"
 #include "_Common.h"
 
-#include "talk/app/webrtc/mediastreaminterface.h"
-#include "talk/app/webrtc/peerconnectioninterface.h"
-#include "webrtc/base/scoped_ptr.h"
+#include "webrtc/api/mediastreaminterface.h"
+#include "webrtc/api/peerconnectioninterface.h"
+//#include "webrtc/base/scoped_ptr.h"
 
 class _Buffer;
 class _MediaStream;
@@ -37,15 +37,15 @@ public:
 	_RTCPeerConnection(const _PeerConnection* pcBase, const webrtc::PeerConnectionInterface::RTCConfiguration& configuration, const webrtc::MediaConstraintsInterface* constraints = NULL);
 	bool IsValid() { return m_bValid; }
 
-	bool createOffer(_RTCSessionDescriptionCallback successCallback = nullPtr, _RTCPeerConnectionErrorCallback failureCallback = nullPtr, const webrtc::MediaConstraintsInterface* constraints = NULL);
-	bool createAnswer(_RTCSessionDescriptionCallback successCallback = nullPtr, _RTCPeerConnectionErrorCallback failureCallback = nullPtr, const webrtc::MediaConstraintsInterface* constraints = NULL);
-	bool setLocalDescription(webrtc::SessionDescriptionInterface* description, _VoidFunctionCallback successCallback = nullPtr, _RTCPeerConnectionErrorCallback failureCallback = nullPtr);
+	bool createOffer(_RTCSessionDescriptionCallback successCallback = nullptr, _RTCPeerConnectionErrorCallback failureCallback = nullptr, const webrtc::MediaConstraintsInterface* constraints = NULL);
+	bool createAnswer(_RTCSessionDescriptionCallback successCallback = nullptr, _RTCPeerConnectionErrorCallback failureCallback = nullptr, const webrtc::MediaConstraintsInterface* constraints = NULL);
+	bool setLocalDescription(webrtc::SessionDescriptionInterface* description, _VoidFunctionCallback successCallback = nullptr, _RTCPeerConnectionErrorCallback failureCallback = nullptr);
 	const webrtc::SessionDescriptionInterface* localDescription();
-	bool setRemoteDescription(webrtc::SessionDescriptionInterface* description, _VoidFunctionCallback successCallback = nullPtr, _RTCPeerConnectionErrorCallback failureCallback = nullPtr);
+	bool setRemoteDescription(webrtc::SessionDescriptionInterface* description, _VoidFunctionCallback successCallback = nullptr, _RTCPeerConnectionErrorCallback failureCallback = nullptr);
 	const webrtc::SessionDescriptionInterface* remoteDescription();
 	const char* signalingState();
 	bool updateIce(const webrtc::PeerConnectionInterface::RTCConfiguration& configuration, const webrtc::MediaConstraintsInterface* constraints = NULL);
-	bool addIceCandidate(const webrtc::IceCandidateInterface* candidate, _VoidFunctionCallback successCallback = nullPtr, _RTCPeerConnectionErrorCallback failureCallback = nullPtr);
+	bool addIceCandidate(const webrtc::IceCandidateInterface* candidate, _VoidFunctionCallback successCallback = nullptr, _RTCPeerConnectionErrorCallback failureCallback = nullptr);
 	const char* iceGatheringState();
 	const char* iceConnectionState();
 	rtc::scoped_refptr<webrtc::StreamCollectionInterface> getLocalStreams();
@@ -54,7 +54,7 @@ public:
 	bool addStream(webrtc::MediaStreamInterface* stream, const webrtc::MediaConstraintsInterface* constraints);
 	bool removeStream(webrtc::MediaStreamInterface* stream);
 	bool close();
-	bool getStats(webrtc::MediaStreamTrackInterface* selector = NULL, _RTCStatsCallback successCallback = nullPtr, _RTCPeerConnectionErrorCallback failureCallback = nullPtr);
+	bool getStats(webrtc::MediaStreamTrackInterface* selector = NULL, _RTCStatsCallback successCallback = nullptr, _RTCPeerConnectionErrorCallback failureCallback = nullptr);
 	cpp11::shared_ptr<_RTCDTMFSender> createDTMFSender(webrtc::AudioTrackInterface *track);
 	cpp11::shared_ptr<_RTCDataChannel> CreateDataChannel(const std::string& label, const webrtc::DataChannelInit* config);
 

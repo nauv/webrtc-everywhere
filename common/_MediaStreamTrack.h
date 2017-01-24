@@ -7,7 +7,7 @@
 #include "_MediaTrackConstraints.h"
 #include "_Common.h"
 
-#include "talk/app/webrtc/mediastreaminterface.h"
+#include "webrtc/api/mediastreaminterface.h"
 
 class _Buffer;
 class _MediaTrackConstraints;

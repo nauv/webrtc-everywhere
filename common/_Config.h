@@ -129,10 +129,10 @@ WeError;
 #include <memory>
 
 #if __clang__
-#   include <tr1/memory>
-#   include <tr1/functional>
+#   include <memory>
+#   include <functional>
 
-namespace cpp11 = std::tr1;
+namespace cpp11 = std;
 class {
 public:
     template<typename T>

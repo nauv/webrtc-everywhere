@@ -7,8 +7,8 @@
 #include "_Common.h"
 #include "_MediaStreamTrack.h"
 
-#include "talk/app/webrtc/mediastreaminterface.h"
-#include "webrtc/base/scoped_ptr.h"
+#include "webrtc/api/mediastreaminterface.h"
+//#include "webrtc/base/scoped_ptr.h"
 
 class _MediaStreamTrack;
 

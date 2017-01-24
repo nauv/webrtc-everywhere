@@ -10,7 +10,7 @@
 
 #if WE_UNDER_APPLE
 #include <QuartzCore/QuartzCore.h>
-#include <QTKit/QTKit.h>
+//#include <QTKit/QTKit.h>
 #endif
 
 #include "npapi-includes.h"

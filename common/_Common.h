@@ -5,9 +5,9 @@
 #include "_Config.h"
 #include "_RTCMediaConstraints.h"
 
-#include "talk/app/webrtc/peerconnectioninterface.h"
-#include "talk/app/webrtc/mediaconstraintsinterface.h"
-#include "talk/app/webrtc/mediastreaminterface.h"
+#include "webrtc/api/peerconnectioninterface.h"
+#include "webrtc/api/mediaconstraintsinterface.h"
+#include "webrtc/api/mediastreaminterface.h"
 #include "webrtc/base/thread.h"
 
 #include <map>
@@ -620,7 +620,7 @@ struct __BrowserObject* ReleaseObject() { \
 
 extern WEBRTC_EVERYWHERE_API rtc::scoped_refptr<webrtc::PeerConnectionFactoryInterface> GetPeerConnectionFactory();
 extern WEBRTC_EVERYWHERE_API rtc::Thread* GetWorkerThread();
-extern WEBRTC_EVERYWHERE_API rtc::scoped_refptr<webrtc::PortAllocatorFactoryInterface> GetPortAllocatorFactory();
+//extern WEBRTC_EVERYWHERE_API rtc::scoped_refptr<webrtc::PortAllocatorFactoryInterface> GetPortAllocatorFactory();
 extern WEBRTC_EVERYWHERE_API void TakeFakePeerConnectionFactory();
 extern WEBRTC_EVERYWHERE_API void ReleaseFakePeerConnectionFactory();
 extern WEBRTC_EVERYWHERE_API bool GetWindowList(_WindowList** windowList);

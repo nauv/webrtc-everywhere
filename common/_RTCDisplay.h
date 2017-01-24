@@ -5,8 +5,8 @@
 #include "_Config.h"
 #include "_Common.h"
 
-#include "talk/media/base/videorenderer.h"
-#include "webrtc/system_wrappers/interface/critical_section_wrapper.h"
+//#include "talk/media/base/videorenderer.h"
+#include "webrtc/system_wrappers/include/critical_section_wrapper.h"
 #if WE_UNDER_WINDOWS
 #	include <atlbase.h>
 #	include <atlcom.h>
@@ -50,11 +50,11 @@ private:
     int m_height;
     cpp11::function<void()> m_fnOnStartVideoRenderer;
     webrtc::CriticalSectionWrapper *m_cs;
-    rtc::scoped_ptr<uint8[]> m_image;
-    rtc::scoped_refptr<webrtc::VideoTrackInterface> m_rendered_track;
+    std::unique_ptr<uint8[]> m_image;
+    std::unique_ptr<webrtc::VideoTrackInterface> m_rendered_track;
 };
 
-class _VideoRenderer : public webrtc::VideoRendererInterface
+class _VideoRenderer : public rtc::VideoSinkInterface<webrtc::VideoFrame>
 {
 public:
 	_VideoRenderer(int width, int height, cpp11::function<void()> fnOnStartVideoRenderer, webrtc::VideoTrackInterface* track_to_render);
@@ -82,7 +82,7 @@ public:
 
 	// VideoRendererInterface implementation
 	virtual void SetSize(int width, int height);
-	virtual void RenderFrame(const cricket::VideoFrame* frame);
+	virtual void RenderFrame(const webrtc::VideoFrame* frame);
     
     virtual cpp11::shared_ptr<_VideoRendererResources> resources() { return resources_; }
 
@@ -133,7 +133,7 @@ private:
 #pragma warning(push)
 #pragma warning(disable:4251)
 #endif
-	rtc::scoped_ptr<_VideoRenderer> m_renderer;
+	std::unique_ptr<_VideoRenderer> m_renderer;
     webrtc::CriticalSectionWrapper *m_cs;
 #if _MSC_VER
 #pragma warning(pop)
